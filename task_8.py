@@ -1,3 +1,5 @@
+import sys
+
 k = int(input())
 n = int(input())
 flash = []
@@ -20,7 +22,7 @@ for i in range(n):
     nums = int(input(":"))
     if nums > k:
         print('')
-        exit
+        sys.exit()
     list.append(nums)
 
 
@@ -35,11 +37,15 @@ for i in range(n):
 #         break
 #     else:
 #         break
-
+srd = 0
 while list != []:
+    ost = k
     flash.clear()
-    copy(list,flash)    
+    copy(list,flash)
     c += 1
+    ost -= sum(flash)
+    srd += ost/c
 
 
 print(c)
+print(srd)
